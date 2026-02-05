@@ -17,6 +17,8 @@ app.use(cors({
 
 app.use(cookieParser()); // for parsing cookies
 
+import userRouter from './routes/user.route.js';
 
+app.use('/api/v1/expense-tracker/users', userRouter) // User routes
 
 export default app
