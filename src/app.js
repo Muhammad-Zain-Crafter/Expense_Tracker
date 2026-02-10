@@ -18,8 +18,13 @@ app.use(cors({
 app.use(cookieParser()); // for parsing cookies
 
 import userRouter from './routes/user.route.js';
-import expenseRouter from './routes/expense.route.js';`
-`
+import expenseRouter from './routes/expense.route.js';
+import budgetRouter from './routes/budget.route.js';
+import incomeRouter from './routes/income.route.js';
+
+
 app.use('/api/v1/expense-tracker/users', userRouter) // User routes
 app.use('/api/v1/expense-tracker/expenses', expenseRouter) // Expense routes
+app.use('/api/v1/expense-tracker/budgets', budgetRouter) // Budget routes
+app.use('/api/v1/expense-tracker/incomes', incomeRouter) // Income routes
 export default app

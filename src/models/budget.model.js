@@ -12,7 +12,7 @@ const budgetSchema = new Schema(
       enum: ["Food", "Transport", "Rent", "Shopping", "Bills", "Other"],
       required: true,
     },
-    amount: {
+    limit: {
       type: Number,
       required: true,
     },

@@ -7,12 +7,6 @@ const incomeSchema = new Schema(
       ref: "User",
       required: true,
     },
-    title: {
-      type: String,
-      required: true,
-      trim: true,
-      maxLength: 60,
-    },
     amount: {
       type: Number,
       required: true,
@@ -24,7 +18,7 @@ const incomeSchema = new Schema(
       trim: true,
     },
 
-    category: {
+    source: {
       type: String,
       required: true,
       trim: true,
