@@ -9,11 +9,27 @@ app.use(express.json({
 }));
 app.use(express.urlencoded({ extended: true }));
 
-app.use(cors({
-   
-    origin: process.env.CORS_ORIGIN,
-    credentials: true
-}))
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:5174',
+  'http://localhost:5175',
+  process.env.CORS_ORIGIN, 
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true); // Postman, server requests
+
+      if (!allowedOrigins.includes(origin)) {
+        return callback(new Error('Not allowed by CORS'));
+      }
+
+      callback(null, true);
+    },
+    credentials: true,
+  })
+);
 
 app.use(cookieParser()); // for parsing cookies
 
